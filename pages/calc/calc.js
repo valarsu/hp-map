@@ -10,7 +10,7 @@ Page({
     priceSize: 0,
     priceAvage: 0,
     priceTotal: (0).toFixed(2),
-    
+
     // 商业贷款
     arrayRate: ['一成（10%）', '二成（20%）', '三成（30%）', '四成（40%）', '五成（50%）', '六成（60%）', '七成（70%）', '八成（80%）', '九成（90%）'],
     arrayLoanRate: ['7折基准利率|4.9%x0.7', '85折基准利率|4.9%x0.85', '88折基准利率|4.9%x0.88', '基准利率|4.9%', '1.1倍基准利率|4.9%x1.1'],
@@ -41,7 +41,7 @@ Page({
     indexYearMixFund: 19,
     loanRateMixFund: 0.0325,
     indexLoanRateMixFund: 3
-    
+
   },
 
   changeTab(e) {
@@ -68,11 +68,11 @@ Page({
         url: `/pages/calc/detail/detail?p=${that.data.busiPriceTotal}&r=${that.data.loanRate}&y=${that.data.indexYear + 1}`
       });
     }
-    
+
   },
 
   bindSize(e) {
-    var that = this    
+    var that = this 
     that.setData({
       priceSize: e.detail.value * 1,
       priceTotal: (e.detail.value * 1 * that.data.priceAvage / 10000).toFixed(2)
@@ -81,7 +81,7 @@ Page({
   },
 
   bindAvage(e) {
-    var that = this    
+    var that = this
     that.setData({
       priceAvage: e.detail.value * 1,
       priceTotal: (that.data.priceSize * e.detail.value * 1 / 10000).toFixed(2)
@@ -106,7 +106,7 @@ Page({
       })
       that.bindLoanTotal()
     }
-    
+
   },
 
 
@@ -149,9 +149,9 @@ Page({
 
   changeLoanRate: function (e) {
     var that = this
-    var param = e.target.dataset    
+    var param = e.target.dataset
     let index = e.detail.value * 1
-    let loanRate = that.data.arrayLoanRate[index].split('|')[1].split('%')    
+    let loanRate = that.data.arrayLoanRate[index].split('|')[1].split('%')
     if (param.type == 'fund') {
       that.setData({
         indexLoanRateFund: index
@@ -180,7 +180,7 @@ Page({
           loanRateMix: that.data.baseLoanRate
         })
       }
-      console.log(that.data.loanRateMix)      
+      console.log(that.data.loanRateMix)
     } else if (param.type == 'mixFund') {
       that.setData({
         indexLoanRateMixFund: index
@@ -210,8 +210,8 @@ Page({
       }
       console.log(that.data.loanRate)
     }
-    
-    
+
+
 
   },
 

@@ -21,7 +21,7 @@
           单价:
         </view>  
         <view class='cell-right'>
-          <input bindinput="bindAvage" placeholder-style="color:#ff5252" placeholder="请输入单价"/>
+          <input bindinput="bindAvage" placeholder-style="color:#ff5252" placeholder="请输入单价" type="number"/>
           <text class='p-l-1'>元/㎡</text>
         </view>
       </view>

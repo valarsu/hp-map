@@ -1,13 +1,12 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/index/detail/detail",    
+    "pages/index/detail/detail",
     "pages/logs/logs",
     "pages/calc/calc",
     "pages/calc/detail/detail",
     "pages/calc/detail/list/list",
-    "pages/limitation/limitation",
-    "pages/ll/ll"
+    "pages/limitation/limitation"
   ],
   "tabBar": {
     "list": [{
@@ -34,7 +33,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#ff4401",
-    "navigationBarTitleText": "杭州房价地图", 
+    "navigationBarTitleText": "杭州房价地图",
     "navigationBarTextStyle":"white",
     "backgroundColor": "#eeeeee",
     "enablePullDownRefresh": true
