@@ -10,15 +10,15 @@
   ],
   "tabBar": {
     "list": [{
-      "pagePath": "pages/index/index",
-      "text": "地图",
-      "iconPath": "/images/location.png",
-      "selectedIconPath": "/images/location_HL.png"
+        "pagePath": "pages/index/index",
+        "text": "地图",
+        "iconPath": "/images/location.png",
+        "selectedIconPath": "/images/location_HL.png"
       }, {
-      "pagePath": "pages/calc/calc",
-      "text": "房贷",
-      "iconPath": "images/calc.png",
-      "selectedIconPath": "images/calc_HL.png"
+        "pagePath": "pages/calc/calc",
+        "text": "房贷",
+        "iconPath": "images/calc.png",
+        "selectedIconPath": "images/calc_HL.png"
       }, {
         "pagePath": "pages/limitation/limitation",
         "text": "购房资格",

@@ -1,10 +1,14 @@
 //app.js
 App({
-  onLaunch: function () {
+  onLaunch: function (e) {
     //调用API从本地缓存中获取数据
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+    console.log(e.scene)
+  },
+  onShow: function (e) {
+    console.log(e.scene)
   },
   getUserInfo: function(cb){
     var that = this

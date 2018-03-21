@@ -72,7 +72,7 @@ Page({
   },
 
   bindSize(e) {
-    var that = this 
+    var that = this
     that.setData({
       priceSize: e.detail.value * 1,
       priceTotal: (e.detail.value * 1 * that.data.priceAvage / 10000).toFixed(2)
