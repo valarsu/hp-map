@@ -28,27 +28,3 @@ App({
     userInfo:null
   }
 })
-// "tabBar": {
-//   "list": [{
-//     "pagePath": "pages/index/index",
-//     "text": "首页",
-//     "iconPath": "images/icon_guitar.png",
-//     "selectedIconPath": "images/icon_guitar_HL.png"
-//   }, {
-//     "pagePath": "pages/self/self",
-//     "text": "自己",
-//     "iconPath": "images/icon_head.png",
-//     "selectedIconPath": "images/icon_head_HL.png"
-//   }, {
-//     "pagePath": "pages/map/map",
-//     "text": "地图",
-//     "iconPath": "/images/location.png",
-//     "selectedIconPath": "/images/location.png"
-//   }],
-//   "color": "#999",
-//   "backgroundColor": "#F8F8F8",
-//   "borderStyle": "black",
-//   "selectedColor": "#FA850A"
-// },
-
-// "navigationBarBackgroundColor": "#ff6347",

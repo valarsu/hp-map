@@ -20,6 +20,4 @@
       </block>
     </view>
   </block>
-  <!-- <view wx-if="caidan" class='list-title' style='width: 100%; text-align: center;'>居然看到这里了！但是并没有彩蛋╮(╯▽╰)╭</view> -->
 </view>
-
