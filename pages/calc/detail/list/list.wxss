@@ -1,0 +1,31 @@
+/* pages/calc/detail/list/list.wxss */
+@import "./../detail.wxss";
+.head-wrap{
+  width: 100%;
+  display: flex;
+  position: fixed;
+  top: 0;
+  box-sizing: border-box;
+  background: #eee;  
+}
+.head-item, .list {
+  font-size: 24rpx;
+  flex: 1;
+  text-align: center;
+  height: 96rpx;
+  line-height: 96rpx;
+}
+.list-item {
+  width: 100%;
+  display: flex;
+  box-sizing: border-box; 
+  border-top: 2rpx dashed #999;
+}
+.list-title {
+  font-size: 28rpx;
+  color: #ff5252;
+  line-height: 96rpx;
+}
+.main-wrap{
+  margin-top: 96rpx;
+}

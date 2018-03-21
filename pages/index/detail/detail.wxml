@@ -1,0 +1,32 @@
+<view class="mask-wrapper center-a">
+  <view class="mask">
+    <view class="mask-item" style='background: url(http://osk1d74lj.bkt.clouddn.com/back.jpg);background-size: cover;'>
+      <image wx:if="{{buildingInfo.img}}" src="{{buildingInfo.img}}"></image>
+    </view>  
+    <view class="mask-item p-a-1 space-between">
+      <view class="left text-cut" style="width: 60%;">
+        <text class="title">{{buildingInfo.name}}\n</text>
+        <text class="subtitle text-cut">{{buildingInfo.wuye}}</text>
+      </view>
+      <view class="right">
+        <text class="primary-title">{{buildingInfo.junjia}}</text>
+      </view>
+    </view> 
+    <view class="mask-item p-x-1 p-t-1">
+      <text class="subtitle clamp">详细地址：{{buildingInfo.zuoluodizhi}}</text>
+    </view>
+    <view class="mask-item p-x-1 p-t-1">
+      <text class="subtitle text-cut">开盘时间：{{buildingInfo.kaipanshijian}}</text>
+    </view> 
+    <view class="mask-item p-x-1 p-t-1">
+      <text class="subtitle text-cut">数据来源：透明售房网及房产网站，仅供参考。</text>
+    </view> 
+    <view class="mask-item p-a-4 center-a">
+      <view class="btn-wrapper">
+        <button class="mini-btn p-x-2" type="primary" style="background: #00E676;" bindtap="doMark" data-id="{{buildingInfo.id}}"  data-type="1" size="mini">{{buildingInfo.like}} 喜欢</button>
+        <button class="mini-btn p-x-2" type="primary" open-type="share" style='background: #59b0ff' size="mini">分享</button>
+        <button class="mini-btn p-x-2" type="primary" style="background: #ff5252;" bindtap="doMark" data-id="{{buildingInfo.id}}" data-type="0" size="mini">{{buildingInfo.nolike}} 嫌弃</button>
+      </view>
+    </view>
+  </view>
+</view>

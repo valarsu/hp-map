@@ -1,0 +1,245 @@
+<view class="tab-wrapper">
+  <block wx:for="{{tabs}}" wx:key="unique">
+    <view class="tab-item {{tab_index == index ? 'tab-choosed' : ''}}" bindtap="changeTab" data-tab="{{index}}">{{tabs[index]}}</view>
+  </block>
+</view>
+<view wx:if="{{!busiPriceTotalMixFund}}" class='main-wrapper'>
+  <view class="main-item {{tab_index == 0 ? 'show' : ''}}">
+    <view class='item-wrapper p-x-2'>
+      <view class='item-top'>
+        <text class='item-title'>每月还款</text>
+        <view style='font-size: 60rpx'>{{avageTotal}} 元</view>
+      </view>
+      <view class='item-bottom'>
+        <view class='item-colum'>
+          <text class='item-title'>还款总额</text>
+          <view>{{priceTotal}} 万元</view>
+        </view>
+        <view class='item-colum'>
+          <text class='item-title'>利息总额</text>
+          <view>{{intTotal}} 万元</view>
+        </view>
+      </view>
+    </view>
+    <view>
+      <view class='item-bottom p-a-2' style='border-bottom: 2rpx solid #999;background:#fff;'>
+        <view class='item-colum'>
+          <text class='item-title'>贷款金额</text>
+          <view>{{busiPriceTotal}} 万元</view>
+        </view>
+        <view class='item-colum' style='border-color: #999'>
+          <text class='item-title'>贷款期数</text>
+          <view>{{parts}}</view>
+        </view>
+      </view>
+      <view class='item-title p-a-2'><text style='color: #ff5252'>注意：</text>以上结果仅供参考</view>
+    </view>
+    <view class='p-x-2'>
+      <button type='primary' bindtap='bindCalc' style='background: #ff5252'>查看明细</button>
+    </view>
+  </view>
+  <view class="main-item {{tab_index == 1 ? 'show' : ''}}">
+    <view class='item-wrapper p-x-2'>
+      <view class='item-top'>
+        <text class='item-title'>首月还款</text>
+        <view style='font-size: 60rpx'>{{priceFirstCapital}} 元</view>
+      </view>
+      <view class='item-bottom'>
+        <view class='item-colum'>
+          <text class='item-title'>还款总额</text>
+          <view>{{priceTotalCapital}} 万元</view>
+        </view>
+        <view class='item-colum'>
+          <text class='item-title'>利息总额</text>
+          <view>{{intTotalCapital}} 万元</view>
+        </view>
+      </view>
+    </view>
+    <view>
+      <view class='item-bottom p-a-2' style='border-bottom: 2rpx solid #999;background:#fff;'>
+        <view class='item-colum'>
+          <text class='item-title'>贷款金额</text>
+          <view>{{busiPriceTotal}} 万元</view>
+        </view>
+        <view class='item-colum' style='border-color: #999'>
+          <text class='item-title'>贷款期数</text>
+          <view>{{parts}}</view>
+        </view>
+      </view>
+    <view class='item-title p-a-2'><text style='color: #ff5252'>注意：</text>以上结果仅供参考      </view>
+    </view>
+    <view class='p-x-2'>
+      <button type='primary' bindtap='bindCalc' style='background: #ff5252'>查看明细</button>
+    </view>
+  </view>
+</view>
+
+
+
+<!--  混合贷款  -->
+<view wx:else class='main-wrapper'>
+  <!-- 等额本息 -->
+  <view class="main-item {{tab_index == 0 ? 'show' : ''}}">
+    <view class='item-wrapper p-x-2'>
+      <view class='item-top'>
+        <text class='item-title'>贷款总额</text>
+        <view style='font-size: 60rpx'>{{loanTotal}} 元</view>
+      </view>
+      <view class='item-bottom'>
+        <view class='item-colum'>
+          <text class='item-title'>还款总额</text>
+          <view>{{totalMix}} 万元</view>
+        </view>
+        <view class='item-colum'>
+          <text class='item-title'>利息总额</text>
+          <view>{{intMix}} 万元</view>
+        </view>
+      </view>
+    </view>
+    
+    <view class='item-title p-a-2'>商业贷款</view>
+    <view class='p-x-2' style='background:#fff;'>
+      <view class='item-top'>
+        <text class='item-title'>每月还款</text>
+        <view style='font-size: 60rpx'>{{avageTotalMix}} 元</view>
+      </view>
+      <view class='item-bottom' style='padding-bottom:0 !important ;'>
+        <view class='item-colum'>
+          <text class='item-title'>贷款金额</text>
+          <view>{{busiPriceTotalMix}} 万元</view>
+        </view>
+        <view class='item-colum' style='border-color: #999'>
+          <text class='item-title'>贷款期数</text>
+          <view>{{partsMix}}</view>
+        </view>
+      </view>
+      <view class='item-bottom' style='border-bottom: 2rpx solid #999;'>
+        <view class='item-colum'>
+          <text class='item-title'>还款总额</text>
+          <view>{{priceTotalMix}} 万元</view>
+        </view>
+        <view class='item-colum' style='border-color: #999'>
+          <text class='item-title'>利息总额</text>
+          <view>{{intTotalMix}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='item-title p-a-2'>公积金贷款</view>
+    <view class='p-x-2' style='background:#fff;'>
+      <view class='item-top'>
+        <text class='item-title'>每月还款</text>
+        <view style='font-size: 60rpx'>{{avageTotalMixFund}} 元</view>
+      </view>
+      <view class='item-bottom' style='padding-bottom:0 !important ;'>
+        <view class='item-colum'>
+          <text class='item-title'>贷款金额</text>
+          <view>{{busiPriceTotalMixFund}} 万元</view>
+        </view>
+        <view class='item-colum' style='border-color: #999'>
+          <text class='item-title'>贷款期数</text>
+          <view>{{partsMixFund}}</view>
+        </view>
+      </view>
+      <view class='item-bottom' style='border-bottom: 2rpx solid #999;'>
+        <view class='item-colum'>
+          <text class='item-title'>还款总额</text>
+          <view>{{priceTotalMixFund}} 万元</view>
+        </view>
+        <view class='item-colum' style='border-color: #999'>
+          <text class='item-title'>利息总额</text>
+          <view>{{intTotalMixFund}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='item-title p-a-2'>
+      <text style='color: #ff5252'>注意：</text>以上结果仅供参考      
+    </view>
+
+    <view class='p-x-2 m-b-2'>
+      <button type='primary' bindtap='bindCalc' data-mix="mix" style='background: #ff5252'>查看明细</button>
+    </view>
+  </view>
+
+  <!-- 等额本金 -->
+  <view class="main-item {{tab_index == 1 ? 'show' : ''}}">
+    <view class='item-wrapper p-x-2'>
+      <view class='item-top'>
+        <text class='item-title'>贷款总额</text>
+        <view style='font-size: 60rpx'>{{loanTotal}} 元</view>
+      </view>
+      <view class='item-bottom'>
+        <view class='item-colum'>
+          <text class='item-title'>还款总额</text>
+          <view>{{totalMixCap}} 万元</view>
+        </view>
+        <view class='item-colum'>
+          <text class='item-title'>利息总额</text>
+          <view>{{intMixCap}} 万元</view>
+        </view>
+      </view>
+    </view>
+    
+    <view class='item-title p-a-2'>商业贷款</view>
+    <view class='p-x-2' style='background:#fff;'>
+      <view class='item-top'>
+        <text class='item-title'>首月还款</text>
+        <view style='font-size: 60rpx'>{{priceFirstCapMix}} 元</view>
+      </view>
+      <view class='item-bottom' style='padding-bottom:0 !important ;'>
+        <view class='item-colum'>
+          <text class='item-title'>贷款金额</text>
+          <view>{{busiPriceTotalMix}} 万元</view>
+        </view>
+        <view class='item-colum' style='border-color: #999'>
+          <text class='item-title'>贷款期数</text>
+          <view>{{partsMix}}</view>
+        </view>
+      </view>
+      <view class='item-bottom' style='border-bottom: 2rpx solid #999;'>
+        <view class='item-colum'>
+          <text class='item-title'>还款总额</text>
+          <view>{{priceTotalCapMix}} 万元</view>
+        </view>
+        <view class='item-colum' style='border-color: #999'>
+          <text class='item-title'>利息总额</text>
+          <view>{{intTotalCapMix}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='item-title p-a-2'>公积金贷款</view>
+    <view class='p-x-2' style='background:#fff;'>
+      <view class='item-top'>
+        <text class='item-title'>首月还款</text>
+        <view style='font-size: 60rpx'>{{priceFirstCapMixFund}} 元</view>
+      </view>
+      <view class='item-bottom' style='padding-bottom:0 !important ;'>
+        <view class='item-colum'>
+          <text class='item-title'>贷款金额</text>
+          <view>{{busiPriceTotalMix}} 万元</view>
+        </view>
+        <view class='item-colum' style='border-color: #999'>
+          <text class='item-title'>贷款期数</text>
+          <view>{{partsMix}}</view>
+        </view>
+      </view>
+      <view class='item-bottom' style='border-bottom: 2rpx solid #999;'>
+        <view class='item-colum'>
+          <text class='item-title'>还款总额</text>
+          <view>{{priceTotalCapMixFund}} 万元</view>
+        </view>
+        <view class='item-colum' style='border-color: #999'>
+          <text class='item-title'>利息总额</text>
+          <view>{{intTotalCapMixFund}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='item-title p-a-2'>
+      <text style='color: #ff5252'>注意：</text>以上结果仅供参考      
+    </view>
+    <view class='p-x-2 m-b-2'>
+      <button type='primary' bindtap='bindCalc' data-mix="mix" style='background:#ff5252;'>查看明细</button>
+    </view>
+  </view>
+</view>

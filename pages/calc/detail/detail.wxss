@@ -1,0 +1,46 @@
+/* pages/calc/detail/detail.wxss */
+@import "./../calc.wxss";
+
+.tab-item {
+  background: #ff5252;
+  color: rgba(255, 255, 255, .6);
+}
+
+.tab-wrapper .tab-choosed::after {
+  background: #fff;
+}
+
+.tab-wrapper .tab-choosed {
+  background: #ff5252;
+  color: #fff;
+}
+.item-wrapper {
+  min-height: 200rpx;
+  width: 100%;
+  background: #ff5252;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.item-top {
+  padding: 32rpx 0 0 0;
+}
+
+.item-title {
+  font-size: 24rpx;
+  line-height: 24rpx;
+}
+
+.item-bottom {
+  display: flex;
+  padding: 32rpx 0;
+}
+
+.item-colum {
+  flex: 1
+}
+
+.item-colum:last-child {
+  border-left: 2rpx solid #fff;
+  padding-left: 32rpx
+}

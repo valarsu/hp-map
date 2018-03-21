@@ -1,0 +1,5 @@
+<!-- <view class="map_container" style="height: {{windowHeight}}px">       -->
+      <view class="map_container">         
+  <map id="map" class="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" controls="{{controls}}" bindcontroltap="controltap" bindcallouttap="callouttap" markers="{{markers}}" bindmarkertap="markertap" bindregionchange="regionchange" show-location></map>
+</view>
+

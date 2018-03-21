@@ -1,0 +1,39 @@
+<view class="index">
+  <view class="house" style="background: url('http://osk1d74lj.bkt.clouddn.com/gfcs_bg.jpg');background-size:100%;">
+    <view class="house-main box {{showName=='house-main' ? 'show' : ''}}">
+      <view class="main-content">
+        <text class="h3">杭州购房</text>
+        <text class="h1">测试资格</text>
+        <view class="btns">
+          <button class="btn-new" bindtap="toSettlement" data-desc='a'>开始测试</button>
+        </view>
+        <text>（2017年4月版）</text>
+      </view>
+    </view>
+    <block wx:for="{{list}}" wx:key="">
+      <view class=" {{item.name}} box boxs {{showName}} {{showName == item.name ? 'show' : ''}} ">
+        <view class="main-content">
+          <text style="color: #fff; font-size:40rpx;margin-top:30px;">{{item.title}}</text>
+          <text style="color: #fff; font-size: 30rpx;">{{item.desc}}</text>
+          <view class="btns">
+            <block wx:for="{{item.btns}}" wx:for-item="btns" wx:key="">
+              <button class="btn-new" desc="{{btns.name}}" bindtap='doNext' data-desc='{{btns.name}}' data-name="{{item.name}}">{{btns.desc}}
+              </button>
+            </block>
+          </view>
+        </view>
+        <view class="remark">{{item.remark}}</view>
+      </view>
+    </block>
+    <block wx:for="{{results}}" wx:key="">
+      <view class=" {{item.name}} box boxs {{showName}} {{showName == item.name ? 'show' : ''}} ">
+        <view class="main-content">
+          <text style="color: #fff; font-size:1.2em;margin-top:40px;">{{item.content}}</text>
+          <text style="color: #fff;">{{item.content2}}</text>
+          <text style="color: #fff;">{{item.content3}}</text>
+          <text style="color: #fff;">{{item.mark}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

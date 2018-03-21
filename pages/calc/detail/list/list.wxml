@@ -1,0 +1,25 @@
+<view class="head-wrap p-x-2">
+  <view class='head-item'>月份</view>
+  <view class='head-item'>月供</view>
+  <view class='head-item'>本金</view>
+  <view class='head-item'>利息</view>
+  <view class='head-item'>剩余贷款</view>
+</view>
+<view class='main-wrap p-x-2'>
+  <block wx:for="{{list.arr}}" wx:key="" wx:for-index="indexArr">
+    <view class='list-wrap'>
+      <text class='list-title'>{{item.title}}</text>
+      <block wx:for="{{list.arr[indexArr].list}}" wx:key="" wx:for-item="cell" wx:for-index="cellindex">
+        <view class='list-item'>
+          <view class='list'>{{cell.month}}</view>
+          <view class='list'>{{cell.avageTotal}}元</view>
+          <view class='list'>{{cell.avageBasic}}元</view>
+          <view class='list'>{{cell.avageInt}}元</view>
+          <view class='list'>{{cell.resLoan}}元</view>
+        </view>
+      </block>
+    </view>
+  </block>
+  <!-- <view wx-if="caidan" class='list-title' style='width: 100%; text-align: center;'>居然看到这里了！但是并没有彩蛋╮(╯▽╰)╭</view> -->
+</view>
+

@@ -1,0 +1,261 @@
+<view class="tab-wrapper">
+  <block wx:for="{{tabs}}" wx:key="unique">
+    <view class="tab-item {{tab_index == index ? 'tab-choosed' : ''}}" bindtap="changeTab" data-tab="{{index}}">{{tabs[index]}}</view>
+  </block>
+</view>
+<view class='main-wrapper'>
+  <view class="main-item {{tab_index == 0 ? 'show' : ''}}">
+    <view class='cell-wrapper m-y-2 p-x-2'>
+      <view class='cell-item'>
+        <view class='cell-left'>
+          总面积:
+        </view>  
+        <view class='cell-right'>
+          <input bindinput="bindSize" placeholder-style="color:#ff5252" placeholder="请输入总面积"/>
+          <text class='p-l-1'>平<text style='color: transparent'>/</text>米</text>
+        </view>
+      </view>
+      
+      <view class='cell-item'>
+        <view class='cell-left'>
+          单价:
+        </view>  
+        <view class='cell-right'>
+          <input bindinput="bindAvage" placeholder-style="color:#ff5252" placeholder="请输入单价"/>
+          <text class='p-l-1'>元/㎡</text>
+        </view>
+      </view>
+
+      <view class='cell-item'>
+        <view class='cell-left'>
+          总价:
+        </view>  
+        <view class='cell-right'>
+          <text style='color: #ff5252'>{{ priceTotal }}</text> 
+          <text class='p-l-1'>万<text style='color: transparent'>/</text>元</text>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+  <view class="main-item {{tab_index == 1 ? 'show' : ''}}">
+    <view class='cell-wrapper m-y-2 p-x-2'>
+      <view class='cell-item'>
+        <view class='cell-left'>
+          总价:
+        </view>  
+        <view class='cell-right'>
+          <input bindinput="bindTotal" style='number' placeholder-style="color:#ff5252" placeholder="{{priceTotal > 0 ? priceTotal : '请输入总价'}}"/>
+          <text class='p-l-1'>万<text style='color: transparent'>/</text>元</text>
+        </view>
+      </view>
+
+      <view class='cell-item'>
+        <view class='cell-left'>
+          首付比例:
+        </view>  
+        <view class='cell-right'>
+          <picker bindchange="changeRate" value="{{indexRate}}" range="{{arrayRate}}">
+            <view class="picker">
+              {{arrayRate[indexRate]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class='cell-item'>
+        <view class='cell-left'>
+          贷款总额:
+        </view>  
+        <view class='cell-right'>
+          <text style='color: #ff5252'>{{ busiPriceTotal }}</text> 
+          <text class='p-l-1'>万<text style='color: transparent'>/</text>元</text>
+        </view>
+      </view>
+
+      <view class='cell-item'>
+        <view class='cell-left'>
+          按揭年数:
+        </view>  
+        <view class='cell-right'>
+          <picker bindchange="changeYear" value="{{indexYear}}" range="{{arrayYear}}">
+            <view class="picker">
+              {{arrayYear[indexYear]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class='cell-item'>
+        <view class='cell-left'>
+          按揭利率:
+        </view>  
+        <view class='cell-right'>
+          <picker bindchange="changeLoanRate" value="{{indexLoanRate}}" range="{{arrayLoanRate}}">
+            <view class="picker">
+              {{arrayLoanRate[indexLoanRate]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+    </view>
+
+    <view class='p-x-2'>
+      <button type='primary' bindtap='bindCalc' style='background: #ff5252'>计算房贷</button>
+    </view>
+  </view>
+  
+  <view class="main-item {{tab_index == 2 ? 'show' : ''}}">
+    <view class='cell-wrapper m-y-2 p-x-2'>
+      <view class='cell-item'>
+        <view class='cell-left'>
+          总价:
+        </view>  
+        <view class='cell-right'>
+          <input bindinput="bindTotal" style='number' placeholder-style="color:#ff5252" placeholder="{{priceTotal > 0 ? priceTotal : '请输入总价'}}"/>
+          <text class='p-l-1'>万<text style='color: transparent'>/</text>元</text>
+        </view>
+      </view>
+
+      <view class='cell-item'>
+        <view class='cell-left'>
+          首付比例:
+        </view>  
+        <view class='cell-right'>
+          <picker bindchange="changeRate" data-type='fund' value="{{indexRateFund}}" range="{{arrayRate}}">
+            <view class="picker">
+              {{arrayRate[indexRateFund]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class='cell-item'>
+        <view class='cell-left'>
+          贷款总额:
+        </view>  
+        <view class='cell-right'>
+          <text style='color: #ff5252'>{{ busiPriceTotal }}</text> 
+          <text class='p-l-1'>万<text style='color: transparent'>/</text>元</text>
+        </view>
+      </view>
+
+      <view class='cell-item'>
+        <view class='cell-left'>
+          按揭年数:
+        </view>  
+        <view class='cell-right'>
+          <picker bindchange="changeYear" data-type="fund" value="{{indexYearFund}}" range="{{arrayYear}}">
+            <view class="picker">
+              {{arrayYear[indexYearFund]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class='cell-item'>
+        <view class='cell-left'>
+          按揭利率:
+        </view>  
+        <view class='cell-right'>
+          <picker bindchange="changeLoanRate" data-type='fund' value="{{indexLoanRateFund}}" range="{{arrayLoanRateFund}}">
+            <view class="picker">
+              {{arrayLoanRateFund[indexLoanRateFund]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+    </view>
+
+    <view class='p-x-2'>
+      <button type='primary' bindtap='bindCalc' data-type='fund' style='background: #ff5252'>计算房贷</button>
+    </view>
+  </view>
+  
+  <view class="main-item {{tab_index == 3 ? 'show' : ''}}">
+    <view class='cell-wrapper m-y-2 p-x-2'>
+      <view class='cell-item'>
+        <view class='cell-left'>
+          商业贷款:
+        </view>  
+        <view class='cell-right'>
+          <input bindinput="bindTotal" data-type='mix' style='number' placeholder-style="color:#ff5252" placeholder="贷款金额"/>
+          <text class='p-l-1'>万<text style='color: transparent'>/</text>元</text>
+        </view>
+      </view>
+
+      <view class='cell-item'>
+        <view class='cell-left'>
+          按揭年数:
+        </view>  
+        <view class='cell-right'>
+          <picker bindchange="changeYear" data-type="mix" value="{{indexYearMix}}" range="{{arrayYear}}">
+            <view class="picker">
+              {{arrayYear[indexYearMix]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class='cell-item'>
+        <view class='cell-left'>
+          按揭利率:
+        </view>  
+        <view class='cell-right'>
+          <picker bindchange="changeLoanRate" data-type='mix' value="{{indexLoanRateMix}}" range="{{arrayLoanRate}}">
+            <view class="picker">
+              {{arrayLoanRate[indexLoanRateMix]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+    </view>
+
+    <view class='cell-wrapper m-y-2 p-x-2'>
+      <view class='cell-item'>
+        <view class='cell-left'>
+          公积金贷款:
+        </view>  
+        <view class='cell-right'>
+          <input bindinput="bindTotal" data-type='mixFund' style='number' placeholder-style="color:#ff5252" placeholder="贷款金额"/>
+          <text class='p-l-1'>万<text style='color: transparent'>/</text>元</text>
+        </view>
+      </view>
+
+      <view class='cell-item'>
+        <view class='cell-left'>
+          按揭年数:
+        </view>  
+        <view class='cell-right'>
+          <picker bindchange="changeYear" data-type="mixFund" value="{{indexYearMixFund}}" range="{{arrayYear}}">
+            <view class="picker">
+              {{arrayYear[indexYearMixFund]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class='cell-item'>
+        <view class='cell-left'>
+          按揭利率:
+        </view>  
+        <view class='cell-right'>
+          <picker bindchange="changeLoanRate" data-type='mixFund' value="{{indexLoanRateMixFund}}" range="{{arrayLoanRateFund}}">
+            <view class="picker">
+              {{arrayLoanRateFund[indexLoanRateMixFund]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+    </view>
+    <view class='p-x-2'>
+      <button type='primary' bindtap='bindCalc' data-type='mix' style='background: #ff5252'>计算房贷</button>
+    </view>
+  </view>
+
+</view>
