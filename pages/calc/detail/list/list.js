@@ -51,12 +51,12 @@ Page({
         res.arr[i].list[j].avageBasic = avageBasic.toFixed(2)
         res.arr[i].list[j].avageInt = avageInt.toFixed(2)
         res.arr[i].list[j].resLoan = resLoan.toFixed(0)
-
-        that.setData({
-          list: res
-        })
       }
     }
+    console.log(res)
+    that.setData({
+      list: res
+    })
   },
 
 
@@ -123,12 +123,12 @@ Page({
         res.arr[i].list[j].avageBasic = avageBasic.toFixed(2)
         res.arr[i].list[j].avageInt = avageInt.toFixed(2)
         res.arr[i].list[j].resLoan = resLoan.toFixed(0)
-
-        that.setData({
-          list: res
-        })
       }
     }
+
+    that.setData({
+      list: res
+    })
         
     // 考虑到不同年的情况
     for (let i = minYear; i < maxYear; i ++) {
@@ -173,11 +173,11 @@ Page({
         res.arr[i].list[j].avageInt = avageInt.toFixed(2)
         res.arr[i].list[j].resLoan = resLoan.toFixed(0)
 
-        that.setData({
-          list: res
-        })
       }
     }
+    that.setData({
+      list: res
+    })
   },
 
   /**
